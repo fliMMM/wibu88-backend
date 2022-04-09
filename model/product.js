@@ -7,7 +7,7 @@ const ProductSchema = new Schema(
     author: { type: String },
     image: { type: String, required: true },
     description: { type: String, required: true },
-    categories: { type: String, required: true },
+    categories: { type: Array, required: true },
     price: { type: Number, required: true },
     inStock: { type: Number, required: true },
     isDelete: { type: Boolean, default: false },

@@ -58,6 +58,18 @@ Router.get("/", async (req, res) => {
   }
 });
 
+//get product by id
+Router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const product = await Product.findOne({ isDelete: false, _id:id });
+    res.json({ success: true, message: "thành công", data: product });
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({ success: false, message: "Thất bại" });
+  }
+});
+
 //chinh sua
 //put /update
 Router.put("/update/:id", verifyAdminToken, async (req, res) => {
