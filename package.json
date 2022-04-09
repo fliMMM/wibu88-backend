@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon index"
+    "server": "nodemon index",
+    "heroku-postbuild": "cd admin-page && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",

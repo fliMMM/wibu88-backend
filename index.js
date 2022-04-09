@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 9999;
 async function connectDB() {
   try {
     await mongoose.connect(
-      "mongodb+srv://pro0654:01257338888@wibu88.j9d7o.mongodb.net/wibu88?retryWrites=true&w=majority"
+      process.env.MONGOOSE_URL
     );
     console.log("ket noi mongodb thanh cong");
   } catch (err) {
@@ -29,6 +29,12 @@ connectDB();
 
 app.use("/api/products", productRouter);
 app.use("/api/auth", authRouter);
+
+app.use(express.static(path.join(__dirname, "/admin-page/build")));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/admin-page/build', 'index.html'));
+});
 
 app.listen(PORT, () => {
   console.log(`server is running at PORT: ${PORT}`);
