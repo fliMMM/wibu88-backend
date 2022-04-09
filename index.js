@@ -30,11 +30,6 @@ connectDB();
 app.use("/api/products", productRouter);
 app.use("/api/auth", authRouter);
 
-app.use(express.static(path.join(__dirname, "/admin-page/build")));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/admin-page/build', 'index.html'));
-});
 
 app.listen(PORT, () => {
   console.log(`server is running at PORT: ${PORT}`);
