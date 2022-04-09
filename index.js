@@ -6,7 +6,7 @@ const productRouter = require("./routes/product");
 const authRouter = require("./routes/auth");
 
 dotenv.config();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 9999;
 
 //connect to mongodb
 async function connectDB() {
