@@ -1,7 +1,7 @@
 const express = require("express");
 const Product = require("../model/product");
 const Router = express.Router();
-const verifyAdminToken = require("../middleware/auth");
+const verifyAdminToken = require("../middleware/admin");
 
 //creatt product
 // POST /
